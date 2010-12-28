@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+<title>Demo: Ajax form submit</title>
+<link href="viewform_files/4176578971-published_form_compiled.css" type="text/css" rel="stylesheet">
+<link href="viewform_files/4176578971-published_form_compiled.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/form-submit.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
+<style type="text/css">
+body {
+	margin:0px;
+	font-size:0.8em;
+	font-family:Trebuchet MS
+}
+#mainContainer {
+	width:840px;
+	margin:5px;
+}
+table, tr, td {
+	vertical-align:top;
+}
+.textInput {
+	width:300px;
+}
+html {
+	margin:0px;
+}
+.formButton {
+	width:75px;
+}
+textarea, input, select {
+	font-family:Trebuchet MS;
+}
+i {
+	font-size:0.9em;
+}
+li{
+	list-style:none;	
+}
+</style>
+</head>
+<body>
+<div id="mainContainer" style="margin-left:100px;">
+<fieldset>
+<legend>Ajax form submit</legend>
+<form action="someplace.html" method="post" name="myForm">
+  <div id="formResponse">
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_4">Your Name <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_4"></label>
+        <input name="entry.4.single" class="ss-q-short" id="entry_4" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_0">Business Name <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_0"></label>
+        <input name="entry.0.single" class="ss-q-short" id="entry_0" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_5">Address Line 1 <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_5"></label>
+        <input name="entry.5.single" class="ss-q-short" id="entry_5" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item  ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_1">Address Line 2 </label>
+        <label class="ss-q-help" for="entry_1"></label>
+        <input name="entry.1.single" class="ss-q-short" id="entry_1" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_6">Neighborhood <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_6"></label>
+        <input name="entry.6.single" class="ss-q-short" id="entry_6" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-paragraph-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_3">Business Description <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_3">How would you describe this business to your friends in a sentence or two?</label>
+        <textarea name="entry.3.single" rows="8" cols="75" class="ss-q-long" id="entry_3"></textarea>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-checkbox">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_2">How would you describe the "mood" <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_2"></label>
+        <ul class="ss-choices">
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Romance" class="ss-q-checkbox" id="group_2_1" type="checkbox">
+              Romance</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Adventure" class="ss-q-checkbox" id="group_2_2" type="checkbox">
+              Adventure</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Laughs" class="ss-q-checkbox" id="group_2_3" type="checkbox">
+              Laughs</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Nightlife" class="ss-q-checkbox" id="group_2_4" type="checkbox">
+              Nightlife</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Just Chillin'" class="ss-q-checkbox" id="group_2_5" type="checkbox">
+              Just Chillin'</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.2.group" value="Family Fun" class="ss-q-checkbox" id="group_2_6" type="checkbox">
+              Family Fun</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-checkbox">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_18">Crowd Type <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_18"></label>
+        <ul class="ss-choices">
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.18.group" value="Touristy" class="ss-q-checkbox" id="group_18_1" type="checkbox">
+              Touristy</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.18.group" value="Local" class="ss-q-checkbox" id="group_18_2" type="checkbox">
+              Local</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-select">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_8">Dress Code <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_8"></label>
+        <select name="entry.8.single" id="entry_8">
+          <option selected="selected" value="Choose">Choose</option>
+          <option value="Casual">Casual</option>
+          <option value="Business">Business</option>
+          <option value="Business Casual">Business Casual</option>
+          <option value="Upscale">Upscale</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-checkbox">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_10">Age Range <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_10"></label>
+        <ul class="ss-choices">
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.10.group" value="All Ages" class="ss-q-checkbox" id="group_10_1" type="checkbox">
+              All Ages</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.10.group" value="Kid Friendly" class="ss-q-checkbox" id="group_10_2" type="checkbox">
+              Kid Friendly</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.10.group" value="21 &amp; Over" class="ss-q-checkbox" id="group_10_3" type="checkbox">
+              21 &amp; Over</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.10.group" value="Golden Years" class="ss-q-checkbox" id="group_10_4" type="checkbox">
+              Golden Years</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-checkbox">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_19">Good for? <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_19"></label>
+        <ul class="ss-choices">
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.19.group" value="Singles" class="ss-q-checkbox" id="group_19_1" type="checkbox">
+              Singles</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.19.group" value="Couples" class="ss-q-checkbox" id="group_19_2" type="checkbox">
+              Couples</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-checkbox">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_24">Best When? <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_24"></label>
+        <ul class="ss-choices">
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.24.group" value="Drunk" class="ss-q-checkbox" id="group_24_1" type="checkbox">
+              Drunk</label>
+          </li>
+          <li class="ss-choice-item">
+            <label class="ss-choice-label">
+              <input name="entry.24.group" value="Sober" class="ss-q-checkbox" id="group_24_2" type="checkbox">
+              Sober</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="ss-item ss-item-required ss-grid">
+    <div class="ss-form-entry">
+      <label class="ss-q-title" for="entry_20">Rate Your Experience <span class="ss-required-asterisk">*</span></label>
+      <label class="ss-q-help" for="entry_20"></label>
+      <div class="errorbox-component errorbox-good">
+        <div class="errorbox-good"></div>
+        <div class="errorbox-good"></div>
+        <div class="errorbox-good"></div>
+        <table border="0" cellpadding="5" cellspacing="0">
+          <thead>
+            <tr>
+              <td class="ss-gridnumbers" style="width: 24%;"></td>
+              <td class="ss-gridnumbers" style="width: 6%;"></td>
+              <td class="ss-gridnumbers" style="width: 12%;"><label class="ss-gridnumber">1 - Worst</label></td>
+              <td class="ss-gridnumbers" style="width: 12%;"><label class="ss-gridnumber">2</label></td>
+              <td class="ss-gridnumbers" style="width: 12%;"><label class="ss-gridnumber">3</label></td>
+              <td class="ss-gridnumbers" style="width: 12%;"><label class="ss-gridnumber">4</label></td>
+              <td class="ss-gridnumbers" style="width: 12%;"><label class="ss-gridnumber">5 - Best</label></td>
+              <td class="ss-gridnumbers" style="width: 6%;"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ss-gridrow ss-grid-row-odd">
+              <td class="ss-gridrow ss-leftlabel ss-gridrow-leftlabel" style="width: 24%;">Style</td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.21.group" value="1 - Worst" class="ss-q-radio" id="group_21_1" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.21.group" value="2" class="ss-q-radio" id="group_21_2" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.21.group" value="3" class="ss-q-radio" id="group_21_3" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.21.group" value="4" class="ss-q-radio" id="group_21_4" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.21.group" value="5 - Best" class="ss-q-radio" id="group_21_5" type="radio"></td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+            </tr>
+            <tr class="ss-gridrow ss-grid-row-even">
+              <td class="ss-gridrow ss-leftlabel ss-gridrow-leftlabel" style="width: 24%;">Service</td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.22.group" value="1 - Worst" class="ss-q-radio" id="group_22_1" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.22.group" value="2" class="ss-q-radio" id="group_22_2" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.22.group" value="3" class="ss-q-radio" id="group_22_3" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.22.group" value="4" class="ss-q-radio" id="group_22_4" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.22.group" value="5 - Best" class="ss-q-radio" id="group_22_5" type="radio"></td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+            </tr>
+            <tr class="ss-gridrow ss-grid-row-odd">
+              <td class="ss-gridrow ss-leftlabel ss-gridrow-leftlabel" style="width: 24%;">Quality</td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.23.group" value="1 - Worst" class="ss-q-radio" id="group_23_1" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.23.group" value="2" class="ss-q-radio" id="group_23_2" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.23.group" value="3" class="ss-q-radio" id="group_23_3" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.23.group" value="4" class="ss-q-radio" id="group_23_4" type="radio"></td>
+              <td class="ss-gridrow" style="width: 12%;"><input name="entry.23.group" value="5 - Best" class="ss-q-radio" id="group_23_5" type="radio"></td>
+              <td class="ss-gridrow" style="width: 6%;"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-select">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_11">Best time to go? <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_11"></label>
+        <select name="entry.11.single" id="entry_11">
+          <option selected="selected" value="Morning">Morning</option>
+          <option value="Day">Day</option>
+          <option value="Night">Night</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_17">How much time spent? <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_17">Number of hours only</label>
+        <input name="entry.17.single" class="ss-q-short" id="entry_17" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="errorbox-good">
+    <div class="ss-item ss-item-required ss-text">
+      <div class="ss-form-entry">
+        <label class="ss-q-title" for="entry_7">Price Per Person <span class="ss-required-asterisk">*</span></label>
+        <label class="ss-q-help" for="entry_7"></label>
+        <input name="entry.7.single" class="ss-q-short" id="entry_7" type="text">
+      </div>
+    </div>
+  </div>
+  <br>
+  <input name="pageNumber" value="0" type="hidden">
+  <input name="backupCache" value="" type="hidden">
+  <div class="ss-item ss-navigate">
+    <div class="ss-form-entry"></div>
+  </div>
+  <input type="button" id="mySubmit" class="formButton" value="Send" onclick="formObj.submit()">
+  <input type="reset" class="formButton" value="Reset">
+</form>
+</div>
+<script type="text/javascript">
+	var formObj = new DHTMLSuite.form({ formRef:'myForm',action:'formSubmit.php',responseEl:'formResponse'});
+</script>
+</body>
+</html>

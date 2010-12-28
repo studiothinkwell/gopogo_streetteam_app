@@ -1,0 +1,63 @@
+
+<html>
+  <head>
+    <script type="text/javascript"
+            src="http://www.google.com/jsapi?key=ABQIAAAAlJFc1lrstqhgTl3ZYo38bBQcfCcww1WgMTxEFsdaTsnOXOVOUhTplLhHcmgnaY0u87hQyd-n-kiOqQ"></script>
+    <script type="text/javascript">
+      google.load("maps", "2" );
+      google.load("search", "1");
+
+      // Call this function when the page has been loaded
+      function initialize() {
+        var map = new google.maps.Map2(document.getElementById("map"));
+        map.setCenter(new google.maps.LatLng(37.4419, -122.1419), 13);
+
+        var searchControl = new google.search.SearchControl();
+        searchControl.addSearcher(new google.search.WebSearch());
+        //searchControl.addSearcher(new google.search.NewsSearch());
+        searchControl.draw(document.getElementById("searchcontrol"));
+      }
+      google.setOnLoadCallback(initialize);
+    </script>
+
+  </head>
+  <body>
+    <div id="map" style="width: 200px; height: 200px; display:none;"></div>
+    <div id="searchcontrol"></div>
+  </body>
+
+</html>
+
+<!--<html>
+  <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAlJFc1lrstqhgTl3ZYo38bBQcfCcww1WgMTxEFsdaTsnOXOVOUhTplLhHcmgnaY0u87hQyd-n-kiOqQ"></script>
+    <script type="text/javascript">
+
+    google.load("feeds", "1");
+
+    function initialize() {
+      var feed = new google.feeds.Feed("http://www.digg.com/rss/index.xml");
+      feed.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("feed");
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            var div = document.createElement("div");
+            div.appendChild(document.createTextNode(entry.title));
+            container.appendChild(div);
+          }
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="feed"></div>
+  </body>
+</html>-->
+
+
+
+

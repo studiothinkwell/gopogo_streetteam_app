@@ -1,0 +1,105 @@
+<!--
+	<script src="http://www.google.com/jsapi?key=ABQIAAAAlJFc1lrstqhgTl3ZYo38bBQcfCcww1WgMTxEFsdaTsnOXOVOUhTplLhHcmgnaY0u87hQyd-n-kiOqQ"></script>
+	<script>
+		(function () {
+			google.load("maps", "2");
+			google.setOnLoadCallback(function () {
+				// Create map
+				var map = new google.maps.Map2(document.getElementById("map")),
+					markerText = "<h2>You are here</h2><p>Nice with geolocation, ain't it?</p>",
+					markOutLocation = function (lat, long) {
+						var latLong = new google.maps.LatLng(lat, long),
+							marker = new google.maps.Marker(latLong);
+						map.setCenter(latLong, 13);
+						map.addOverlay(marker);
+						marker.openInfoWindow(markerText);
+						google.maps.Event.addListener(marker, "click", function () {
+							marker.openInfoWindow(markerText);
+						});
+					};
+					map.setUIToDefault();
+
+				// Check for geolocation support
+				if (navigator.geolocation) {
+					// Get current position
+					navigator.geolocation.getCurrentPosition(function (position) {
+							// Success!
+							markOutLocation(position.coords.latitude, position.coords.longitude);
+						},
+						function () {
+							// Gelocation fallback: Defaults to Stockholm, Sweden
+							markerText = "<p>Please accept geolocation for me to be able to find you. <br>I've put you in Stockholm for now.</p>";
+							markOutLocation(59.3325215, 18.0643818);
+						}
+					);
+				}
+				else {
+					// No geolocation fallback: Defaults to Eeaster Island, Chile
+					markerText = "<p>No location support. Try Easter Island for now.</p>";
+					markOutLocation(-27.121192, -109.366424);
+				}
+			});
+		})();
+	</script>-->
+    
+    <script type="text/javascript" src="http://maps.google.se/maps/api/js?sensor=false"></script>
+<script>
+	(function () {
+		var directionsService = new google.maps.DirectionsService(),
+			directionsDisplay = new google.maps.DirectionsRenderer(),
+			createMap = function (start) {
+				var travel = {
+						origin : (start.coords)? new google.maps.LatLng(start.lat, start.lng) : start.address,
+						destination : "Alexanderplatz, Berlin",
+						travelMode : google.maps.DirectionsTravelMode.DRIVING
+						// Exchanging DRIVING to WALKING above can prove quite amusing <img src="http://robertnyman.com/wp-includes/images/smilies/icon_smile.gif" alt=":-)" class="wp-smiley">
+					},
+					mapOptions = {
+						zoom: 10,
+						// Default view: downtown Stockholm
+						center : new google.maps.LatLng(59.3325215, 18.0643818),
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+
+				map = new google.maps.Map(document.getElementById("map"), mapOptions);
+				directionsDisplay.setMap(map);
+				directionsDisplay.setPanel(document.getElementById("map-directions"));
+				directionsService.route(travel, function(result, status) {
+					if (status === google.maps.DirectionsStatus.OK) {
+						directionsDisplay.setDirections(result);
+					}
+				});
+			};
+
+			// Check for geolocation support
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (position) {
+						// Success!
+						createMap({
+							coords : true,
+							lat : position.coords.latitude,
+							lng : position.coords.longitude
+						});
+					},
+					function () {
+						// Gelocation fallback: Defaults to Stockholm, Sweden
+						createMap({
+							coords : false,
+							address : "Sveavägen, Stockholm"
+						});
+					}
+				);
+			}
+			else {
+				// No geolocation fallback: Defaults to Lisbon, Portugal
+				createMap({
+					coords : false,
+					address : "Lisbon, Portugal"
+				});
+			}
+	})();
+</script>
+
+
+<div id="map" style="height:400px;"></div>
+<div id="map-directions"></div>

@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAALDWeTDQHOJCbCf0JnUqL8BT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQA7AE8xB9MyWgHECPY2qimOp7BUQ"></script>
+
+    <script src="clientLocation.js" type="text/javascript"></script>
+
+    <script src="localSearch.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+
+
+        function $g(id) {
+            return document.getElementById(id);
+        }
+
+        function displayLocation(latitudeEl, longitudeEl, cityEl, regionEl, countryEl, country_codeEl) {
+            var cloc = new ClientLocation.Location(google.loader.ClientLocation);
+            if (latitudeEl) latitudeEl.innerHTML = cloc.latitude;
+            if (longitudeEl) longitudeEl.innerHTML = cloc.longitude;
+            if (cityEl) cityEl.innerHTML = cloc.address.city;
+            if (regionEl) regionEl.innerHTML = cloc.address.region;
+            if (country) country.innerHTML = cloc.address.country;
+            if (country_codeEl) country_codeEl.innerHTML = cloc.address.country_code;
+        }
+        function localSearch(term, callback, context) {
+            var cloc = new ClientLocation.Location(google.loader.ClientLocation);
+            var searchUrl = 'http://www.google.com/uds/GlocalSearch?callback=' + callback + '&context=' + context + '&hl=en&q=' + encodeURIComponent(term) + '&sll=' + cloc.latitude + ',' + cloc.longitude + '&key=ABQIAAAALDWeTDQHOJCbCf0JnUqL8BT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQA7AE8xB9MyWgHECPY2qimOp7BUQ&v=1.0';
+
+            // http://jaybyjayfresh.com/2007/09/17/using-script-tags-to-do-remote-http-calls-in-javascript/
+            scriptLoaded = function() {
+                removeNode(newScript);
+            };
+
+            var headID = document.getElementsByTagName("head")[0];
+            var newScript = document.createElement('script');
+            newScript.type = 'text/javascript';
+            newScript.onload = scriptLoaded;
+            newScript.src = searchUrl;
+            headID.appendChild(newScript);
+        }
+        function search() {
+            var term = $g("txtSearch").value;
+            localSearch(term, "displayResults", "0");
+
+        }
+        function displayResults(context, results, status, details, unused) {
+            var titles = [];
+            for (var i = 0; i < results.results.length; i++) {
+                // this cast is not necessary, just here to illustrate
+                // vs intellisense and reduce coding errors.
+                var result = new LocalSearch.Result(results.results[i]);
+                titles.push(result.title);
+            }
+            $g("searchResults").innerHTML = titles.join("</br>");
+        }
+        function init() {
+
+            displayLocation($g("latitude"), $g("longitude"), $g("city"), $g("region"), $g("country"), $g("country_code"));
+        }
+    </script>
+
+</head>
+<body onload="init()">
+    <form id="form1" runat="server">
+    <div>
+        latitude : <span id="latitude"></span>
+        <br />
+        longitude : <span id="longitude"></span>
+        <br />
+        city : <span id="city"></span>
+        <br />
+        region : <span id="region"></span>
+        <br />
+        country : <span id="country"></span>
+        <br />
+        country_code : <span id="country_code"></span>
+        <br />
+    </div>
+    <input type="text" id="txtSearch" /><input type="button" id="btnSearch" value="get results"
+        onclick="search();" /><br />
+    &nbsp;<div id="searchResults">
+    </div>
+    </form>
+</body>
+</html>

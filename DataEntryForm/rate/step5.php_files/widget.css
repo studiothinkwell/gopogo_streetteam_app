@@ -1,0 +1,148 @@
+.friendfeed {
+  color: #222222;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
+  padding: 10px;
+}
+
+.friendfeed a:link {
+  color: #1030cc;
+}
+
+.friendfeed a:visited {
+  color: #551a8b;
+}
+
+.friendfeed a:active {
+  color: #cc0000;
+}
+
+.friendfeed div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+
+.friendfeed img {
+  border: 0px;
+}
+
+.friendfeed .header {
+  background-color: #a7c5ea;
+  position: relative;
+}
+
+.friendfeed .header div.inner {
+  padding: 3px;
+  padding-left: 4px;
+}
+
+.friendfeed .header img.logo {
+  width: 120px;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.friendfeed .header .message {
+  position: absolute;
+  top: 8px;
+  left: 138px;
+  font-weight: bold;
+}
+
+.friendfeed .feed {
+  border: 2px solid #a7c5ea;
+  background-color: white;
+  border-top: 0;
+  padding: 8px;
+}
+
+.friendfeed .feed .entry {
+  clear: left;
+  margin-bottom: 1.25em;
+}
+
+.friendfeed .feed .child {
+  margin-left: 23px;
+}
+
+.friendfeed .feed .entry div.icon {
+  float: left;
+}
+
+.friendfeed .feed .entry .body {
+  margin-left: 23px;
+}
+
+.friendfeed .feed .entry .comments .comment,
+.friendfeed .feed .entry .body .summary {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.friendfeed .feed .entry .body .link {
+  margin-top:0.3em;
+}
+
+.friendfeed .feed .entry .body a.friend:visited {
+  color: #1030cc;
+}
+
+.friendfeed .feed .entry .info {
+  color: gray;
+  font-size: 9pt;
+  margin-top: 3px;
+}
+
+.friendfeed .feed .entry .media {
+  margin-top: 0.6em;
+}
+
+.friendfeed .feed .entry .media img {
+  padding: 3px;
+  border: 1px solid #d0d0d0;
+  vertical-align: middle;
+}
+
+.friendfeed .feed .entry .media .thumbnail {
+  margin-right: 10px;
+}
+
+.friendfeed .feed .entry .comments .comment,
+.friendfeed .feed .entry .likes {
+  margin-top: 0.4em;
+  color: gray;
+  padding-left: 32px;
+}
+
+.friendfeed .feed .entry .comments .comment {
+  background: url("http://friendfeed.com/static/images/quote.png?v=2") 14px 2px no-repeat; 
+}
+
+.friendfeed .feed .entry .likes {
+  background: url("http://friendfeed.com/static/images/smile.png?v=2") 12px 0px no-repeat; 
+}
+
+.friendfeed .feed .entry .comments .comment a.friend {
+  font-style: normal;
+}
+
+.friendfeed .feed .entry .comments .comment a:link,
+.friendfeed .feed .entry .comments .comment a.friend:visited,
+.friendfeed .feed .entry .comments .more a,
+.friendfeed .feed .entry .comments .more a:visited,
+.friendfeed .feed .entry .likes a:link,
+.friendfeed .feed .entry .likes a:visited {
+  color: #7777cc;
+}
+
+.friendfeed .feed .entry,
+.friendfeed .feed .more {
+  margin-top: 0.3em;
+}
+
+.friendfeed .feed .more a:visited {
+  color: #1030cc;
+}
+
